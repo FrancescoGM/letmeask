@@ -10,6 +10,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "firebase": "^8.6.8",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -55,5 +56,10 @@
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.3.1"
+  },
+  "author": {
+    "email": "francescogmuller@hotmail.com",
+    "name": "Francesco Gonzalez Müller",
+    "url": "https://app.rocketseat.com.br/me/francescogm"
   }
 }
