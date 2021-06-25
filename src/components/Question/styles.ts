@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 type QuestionContainerProps = {
   isAnswered?: boolean
@@ -11,22 +11,26 @@ export const QuestionContainer = styled.div<QuestionContainerProps>`
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   padding: 24px;
 
-  & + .question {
+  & + & {
     margin-top: 8px;
   }
 
-  &.highlighted {
-    background-color: #f4f0ff;
-    border: 1px solid #835afd;
+  ${props =>
+    props.isHighlighted &&
+    css`
+      background-color: #f4f0ff;
+      border: 1px solid #835afd;
 
-    footer .user-info span {
-      color: #29292e;
-    }
-  }
+      footer .user-info span {
+        color: #29292e;
+      }
+    `}
 
-  &.answered {
-    background-color: #dbdcdd;
-  }
+  ${props =>
+    props.isAnswered &&
+    css`
+      background-color: #dbdcdd;
+    `}
 
   p {
     color: #29292e;

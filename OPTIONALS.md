@@ -14,7 +14,7 @@
 
 - [ ] Outros bancos de dados
 
-- [ ] Styled Components
+- [.] Styled Components
 
 - [x] Eslint, Prettier
 

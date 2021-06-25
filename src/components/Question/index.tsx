@@ -20,7 +20,10 @@ export function Question({
   isHighlighted = false
 }: QuestionProps): JSX.Element {
   return (
-    <QuestionContainer isAnswered={isAnswered} isHighlighted={isHighlighted}>
+    <QuestionContainer
+      isAnswered={isAnswered}
+      isHighlighted={isHighlighted && !isAnswered}
+    >
       <p>{content}</p>
       <footer>
         <div className="user-info">
