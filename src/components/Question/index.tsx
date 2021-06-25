@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import '../styles/question.scss'
+import { QuestionContainer } from './styles'
 
 type QuestionProps = {
   children?: ReactNode
@@ -8,15 +8,19 @@ type QuestionProps = {
     name: string
     avatar: string
   }
+  isHighlighted?: boolean
+  isAnswered?: boolean
 }
 
 export function Question({
   children,
   content,
-  author
+  author,
+  isAnswered = false,
+  isHighlighted = false
 }: QuestionProps): JSX.Element {
   return (
-    <div className="question">
+    <QuestionContainer isAnswered={isAnswered} isHighlighted={isHighlighted}>
       <p>{content}</p>
       <footer>
         <div className="user-info">
@@ -25,6 +29,6 @@ export function Question({
         </div>
         <div>{children}</div>
       </footer>
-    </div>
+    </QuestionContainer>
   )
 }

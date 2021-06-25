@@ -1,4 +1,11 @@
-.question {
+import styled from 'styled-components'
+
+type QuestionContainerProps = {
+  isAnswered?: boolean
+  isHighlighted?: boolean
+}
+
+export const QuestionContainer = styled.div<QuestionContainerProps>`
   background-color: #fefefe;
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
@@ -6,6 +13,19 @@
 
   & + .question {
     margin-top: 8px;
+  }
+
+  &.highlighted {
+    background-color: #f4f0ff;
+    border: 1px solid #835afd;
+
+    footer .user-info span {
+      color: #29292e;
+    }
+  }
+
+  &.answered {
+    background-color: #dbdcdd;
   }
 
   p {
@@ -36,6 +56,11 @@
       }
     }
 
+    > div {
+      display: flex;
+      gap: 16px;
+    }
+
     button {
       border: 0;
       background-color: transparent;
@@ -62,4 +87,4 @@
       }
     }
   }
-}
+`
