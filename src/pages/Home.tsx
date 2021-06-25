@@ -31,7 +31,11 @@ export function Home(): JSX.Element {
       const roomRef = await database.ref(`rooms/${value}`).get()
 
       if (!roomRef.exists()) {
-        alert('Room does not exists.')
+        return alert('Room does not exists.')
+      }
+
+      if (roomRef.val().endedAt) {
+        return alert('Room already closed.')
       }
 
       history.push(`/rooms/${roomRef.key}`)
