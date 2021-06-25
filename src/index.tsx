@@ -2,13 +2,17 @@ import { StrictMode } from 'react'
 import ReactDOM from 'react-dom'
 import { App } from './App'
 
-import './services/firebase'
+import { ThemeProvider } from 'styled-components'
+import { GlobalStyles } from './styles/GlobalStyles'
 
-import './styles/global.scss'
+import './services/firebase'
 
 ReactDOM.render(
   <StrictMode>
-    <App />
+    <ThemeProvider theme={{}}>
+      <GlobalStyles />
+      <App />
+    </ThemeProvider>
   </StrictMode>,
   document.getElementById('root')
 )

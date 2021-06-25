@@ -1,14 +1,14 @@
-import { FormEvent } from 'react'
+import { FormEvent, useRef } from 'react'
 import { Link, useHistory } from 'react-router-dom'
+
+import { useAuth } from '../hooks/useAuth'
+import { database } from '../services/firebase'
 import { Button } from '../components/Button'
 
 import illustrationImg from '../assets/images/illustration.svg'
 import logoImg from '../assets/images/logo.svg'
 
-import '../styles/auth.scss'
-import { useRef } from 'react'
-import { database } from '../services/firebase'
-import { useAuth } from '../hooks/useAuth'
+import { PageAuthContainer } from '../styles/auth'
 
 export function NewRoom(): JSX.Element {
   const { user } = useAuth()
@@ -31,7 +31,7 @@ export function NewRoom(): JSX.Element {
   }
 
   return (
-    <div id="page-auth">
+    <PageAuthContainer>
       <aside>
         <img
           src={illustrationImg}
@@ -57,6 +57,6 @@ export function NewRoom(): JSX.Element {
           </p>
         </div>
       </main>
-    </div>
+    </PageAuthContainer>
   )
 }

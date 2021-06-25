@@ -1,14 +1,15 @@
-import { FormEvent } from 'react'
+import { FormEvent, useRef } from 'react'
+import { useHistory } from 'react-router-dom'
+
 import { useAuth } from '../hooks/useAuth'
 import { Button } from '../components/Button'
+import { database } from '../services/firebase'
 
-import illustrationImg from '../assets/images/illustration.svg'
 import logoImg from '../assets/images/logo.svg'
 import googleIconImg from '../assets/images/google-icon.svg'
-import '../styles/auth.scss'
-import { useHistory } from 'react-router-dom'
-import { useRef } from 'react'
-import { database } from '../services/firebase'
+import illustrationImg from '../assets/images/illustration.svg'
+
+import { ButtonCreateRoom, PageAuthContainer, Separator } from '../styles/auth'
 
 export function Home(): JSX.Element {
   const { user, signInWithGoogle } = useAuth()
@@ -43,7 +44,7 @@ export function Home(): JSX.Element {
   }
 
   return (
-    <div id="page-auth">
+    <PageAuthContainer>
       <aside>
         <img
           src={illustrationImg}
@@ -55,11 +56,11 @@ export function Home(): JSX.Element {
       <main>
         <div className="main-content">
           <img src={logoImg} alt="Letmeask" />
-          <button className="create-room" onClick={handleCreateRoom}>
+          <ButtonCreateRoom onClick={handleCreateRoom}>
             <img src={googleIconImg} alt="Logo do Google" />
             Crie sua sala com o google
-          </button>
-          <div className="separator">ou entre em uma sala</div>
+          </ButtonCreateRoom>
+          <Separator>ou entre em uma sala</Separator>
           <form onSubmit={handleJoinRoom}>
             <input
               ref={inputRef}
@@ -70,6 +71,6 @@ export function Home(): JSX.Element {
           </form>
         </div>
       </main>
-    </div>
+    </PageAuthContainer>
   )
 }

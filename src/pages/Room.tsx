@@ -1,15 +1,22 @@
 import { FormEvent, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 
-import logoImg from '../assets/images/logo.svg'
-import { Button } from '../components/Button'
-import { Question } from '../components/Question'
-import { RoomCode } from '../components/RoomCode'
 import { useAuth } from '../hooks/useAuth'
 import { useRoom } from '../hooks/useRoom'
 import { database } from '../services/firebase'
 
-import '../styles/room.scss'
+import { Button } from '../components/Button'
+import { Question } from '../components/Question'
+import { RoomCode } from '../components/RoomCode'
+
+import logoImg from '../assets/images/logo.svg'
+
+import {
+  PageRoomContainer,
+  PageRoomForm,
+  PageRoomHeader,
+  PageRoomTitle
+} from '../styles/room'
 
 type RoomParams = {
   id: string
@@ -64,21 +71,21 @@ export function Room(): JSX.Element {
   }
 
   return (
-    <div id="page-room">
-      <header>
+    <PageRoomContainer>
+      <PageRoomHeader>
         <div className="content">
           <img src={logoImg} alt="Letmeask" />
           <RoomCode code={id} />
         </div>
-      </header>
+      </PageRoomHeader>
 
       <main>
-        <div className="room-title">
+        <PageRoomTitle>
           <h1>Sala {title}</h1>
           {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
-        </div>
+        </PageRoomTitle>
 
-        <form onSubmit={handleCreateNewQuestion}>
+        <PageRoomForm onSubmit={handleCreateNewQuestion}>
           <textarea ref={textareaRef} placeholder="O que você quer perguntar" />
           <div className="form-footer">
             {user ? (
@@ -96,7 +103,7 @@ export function Room(): JSX.Element {
               Enviar pergunta
             </Button>
           </div>
-        </form>
+        </PageRoomForm>
         <div className="question-list">
           {questions.map(question => (
             <Question
@@ -137,6 +144,6 @@ export function Room(): JSX.Element {
           ))}
         </div>
       </main>
-    </div>
+    </PageRoomContainer>
   )
 }

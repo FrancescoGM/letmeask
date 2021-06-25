@@ -1,17 +1,22 @@
 import { useHistory, useParams } from 'react-router-dom'
 
+import { useRoom } from '../hooks/useRoom'
+import { database } from '../services/firebase'
+
 import { Button } from '../components/Button'
 import { Question } from '../components/Question'
 import { RoomCode } from '../components/RoomCode'
-import { useRoom } from '../hooks/useRoom'
 
 import logoImg from '../assets/images/logo.svg'
 import deleteImg from '../assets/images/delete.svg'
 import checkImg from '../assets/images/check.svg'
 import answerImg from '../assets/images/answer.svg'
 
-import '../styles/room.scss'
-import { database } from '../services/firebase'
+import {
+  PageRoomContainer,
+  PageRoomHeader,
+  PageRoomTitle
+} from '../styles/room'
 
 type RoomParams = {
   id: string
@@ -49,8 +54,8 @@ export function AdminRoom(): JSX.Element {
   }
 
   return (
-    <div id="page-room">
-      <header>
+    <PageRoomContainer>
+      <PageRoomHeader>
         <div className="content">
           <img src={logoImg} alt="Letmeask" />
           <div>
@@ -60,13 +65,13 @@ export function AdminRoom(): JSX.Element {
             </Button>
           </div>
         </div>
-      </header>
+      </PageRoomHeader>
 
       <main>
-        <div className="room-title">
+        <PageRoomTitle>
           <h1>Sala {title}</h1>
           {questions.length > 0 && <span>{questions.length} pergunta(s)</span>}
-        </div>
+        </PageRoomTitle>
 
         <div className="question-list">
           {questions.map(question => (
@@ -103,6 +108,6 @@ export function AdminRoom(): JSX.Element {
           ))}
         </div>
       </main>
-    </div>
+    </PageRoomContainer>
   )
 }

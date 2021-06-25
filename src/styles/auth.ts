@@ -1,4 +1,6 @@
-#page-auth {
+import styled from 'styled-components'
+
+export const PageAuthContainer = styled.div`
   display: flex;
   align-items: stretch;
   height: 100vh;
@@ -90,9 +92,8 @@
       }
     }
   }
-}
-
-.create-room {
+`
+export const ButtonCreateRoom = styled.div`
   margin-top: 64px;
   height: 50px;
   border-radius: 8px;
@@ -115,9 +116,9 @@
   &:hover {
     filter: brightness(0.9);
   }
-}
+`
 
-.separator {
+export const Separator = styled.div`
   font-size: 14px;
   color: #a8a8b3;
   margin: 32px 0;
@@ -139,4 +140,4 @@
     background-color: #a8a8b3;
     margin-left: 16px;
   }
-}
+`

@@ -14,8 +14,10 @@
 
 - [ ] Outros bancos de dados
 
-- [.] Styled Components
+- [x] Styled Components
 
 - [x] Eslint, Prettier
+
+- [ ] Tema de cores
 
 - [ ] Github
