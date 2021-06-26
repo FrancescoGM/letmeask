@@ -1,6 +1,8 @@
 # Upgrades
 
-- [ ] Construir o modal para excluir uma pergunta
+- [x] Construir o modal para encerrar a sala
+
+- [x] Construir o modal para excluir uma pergunta
 
 - [ ] Melhorar os eventos escutados pelo firebase
 
